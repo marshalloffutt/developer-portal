@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 import connection from '../helpers/data/connection';
+
+import Auth from '../components/Auth/Auth';
 import Tutorials from '../components/Tutorials/Tutorials';
 import Profile from '../components/Profile/Profile';
 import Commits from '../components/Commits/Commits';
-
-import Auth from '../components/Auth/Auth';
+import Mavbar from '../components/Mavbar/Mavbar';
 
 import './App.scss';
 
@@ -26,12 +27,14 @@ class App extends Component {
     if (!this.state.authed) {
       return (
         <div className="App">
+          <Mavbar />
           <Auth isAuthenticated={this.isAuthenticated}/>
         </div>
       );
     }
     return (
       <div className="App">
+        <Mavbar />
         <Tutorials />
         <Profile />
         <Commits />
