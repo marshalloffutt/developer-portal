@@ -1,11 +1,19 @@
 import React from 'react';
+import authRequests from '../../helpers/data/authHelpers';
 import './Auth.scss';
 
 class Auth extends React.Component {
+  authenticateUser = (e) => {
+    e.preventDefault();
+    authRequests.authenticate().then(() => {
+      // do something here
+    }).catch(err => console.error('there was an error'));
+  }
+
   render() {
     return (
       <div className="Auth">
-        <button className="btn btn-success">Login</button>
+        <button className="btn btn-success" onClick={this.authenticateUser}>Login</button>
       </div>
     );
   }
