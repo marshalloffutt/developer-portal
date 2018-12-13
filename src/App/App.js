@@ -9,6 +9,7 @@ import Commits from '../components/Commits/Commits';
 import Mavbar from '../components/Mavbar/Mavbar';
 
 import './App.scss';
+import authRequests from '../helpers/data/authRequests';
 
 class App extends Component {
   state = {
@@ -24,17 +25,21 @@ class App extends Component {
   }
 
   render() {
+    const logoutClicky = () => {
+      authRequests.logoutUser();
+      this.setState({ authed: false });
+    };
     if (!this.state.authed) {
       return (
         <div className="App">
-          <Mavbar />
+          <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
           <Auth isAuthenticated={this.isAuthenticated}/>
         </div>
       );
     }
     return (
       <div className="App">
-        <Mavbar />
+        <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
         <Tutorials />
         <Profile />
         <Commits />
