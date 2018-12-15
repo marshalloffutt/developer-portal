@@ -7,7 +7,7 @@ import connection from '../helpers/data/connection';
 import Auth from '../components/Auth/Auth';
 import Tutorials from '../components/Tutorials/Tutorials';
 import Profile from '../components/Profile/Profile';
-import Commits from '../components/Commits/Commits';
+import TutorialForm from '../components/TutorialForm/TutorialForm';
 import Mavbar from '../components/Mavbar/Mavbar';
 
 import './App.scss';
@@ -50,16 +50,22 @@ class App extends Component {
       return (
         <div className="App">
           <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
-          <Auth isAuthenticated={this.isAuthenticated}/>
+          <div className="row">
+            <Auth isAuthenticated={this.isAuthenticated}/>
+          </div>
         </div>
       );
     }
     return (
       <div className="App">
         <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
-        <Tutorials />
-        <Profile />
-        <Commits />
+        <div className="row">
+          <Profile />
+          <TutorialForm />
+        </div>
+        <div className="row">
+          <Tutorials />
+        </div>
       </div>
     );
   }
