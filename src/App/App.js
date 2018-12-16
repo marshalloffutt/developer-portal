@@ -50,6 +50,17 @@ class App extends Component {
     this.setState({ authed: true });
   }
 
+  deleteOne = (resourceId) => {
+    resourceRequests.deleteResourceAxios(resourceId)
+      .then(() => {
+        resourceRequests.getRequest()
+          .then((resources) => {
+            this.setState({ resources });
+          });
+      })
+      .catch(err => console.error('error with delete single', err));
+  }
+
   render() {
     const logoutClicky = () => {
       authRequests.logoutUser();
@@ -73,7 +84,10 @@ class App extends Component {
           <ResourceForm />
         </div>
         <div className="row">
-          <Resources resources={this.state.resources}/>
+          <Resources
+            resources={this.state.resources}
+            deleteSingleResource={this.deleteOne}
+          />
         </div>
       </div>
     );
