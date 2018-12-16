@@ -23,7 +23,6 @@ class App extends Component {
 
   componentDidMount() {
     connection();
-
     resourceRequests.getRequest()
       .then((resources) => {
         this.setState({ resources });
