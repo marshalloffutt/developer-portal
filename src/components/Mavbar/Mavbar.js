@@ -16,7 +16,7 @@ class Mavbar extends React.Component {
 static propTypes = {
   isAuthed: PropTypes.bool,
   logoutClicky: PropTypes.func,
-}
+};
 
   state = {
     isOpen: false,
