@@ -1,0 +1,53 @@
+{
+  "resources": {
+    "resource0": {
+      "name": "Wes Bos - JavaScript 30",
+      "url": "https://javascript30.com",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource1": {
+      "name": "React Tutorial",
+      "url": "https://reactjs.org/tutorial/tutorial.html",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource2": {
+      "name": "CSS Grid",
+      "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource3": {
+      "name": "CSS Grid",
+      "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource4": {
+      "name": "Array Filter Function",
+      "url": "https://codeburst.io/learn-understand-javascripts-filter-function-bde87bce206",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource5": {
+      "name": "Array Reduce Method",
+      "url": "https://codeburst.io/learn-understand-javascripts-reduce-function-b2b0406efbdc",
+      "type": "tutorial",
+      "isDone": false,
+      "uid": 12345
+    },
+    "resource6": {
+      "name": "The Code Pen Blog",
+      "url": "https://blog.codepen.io/",
+      "type": "blog",
+      "isDone": false,
+      "uid": 12345
+    }
+  }
+}

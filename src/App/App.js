@@ -5,9 +5,9 @@ import 'firebase/auth';
 import connection from '../helpers/data/connection';
 
 import Auth from '../components/Auth/Auth';
-import Tutorials from '../components/Tutorials/Tutorials';
+import Resources from '../components/Resources/Resources';
 import Profile from '../components/Profile/Profile';
-import TutorialForm from '../components/TutorialForm/TutorialForm';
+import ResourceForm from '../components/ResourceForm/ResourceForm';
 import Mavbar from '../components/Mavbar/Mavbar';
 
 import './App.scss';
@@ -61,10 +61,10 @@ class App extends Component {
         <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
         <div className="row">
           <Profile />
-          <TutorialForm />
+          <ResourceForm />
         </div>
         <div className="row">
-          <Tutorials />
+          <Resources />
         </div>
       </div>
     );
