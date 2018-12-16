@@ -74,7 +74,7 @@ class App extends Component {
           <ResourceForm />
         </div>
         <div className="row">
-          <Resources />
+          <Resources resources={this.state.resources}/>
         </div>
       </div>
     );

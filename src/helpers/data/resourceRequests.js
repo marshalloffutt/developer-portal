@@ -6,12 +6,12 @@ const firebaseUrl = apiKeys.firebaseConfig.databaseURL;
 const getRequest = () => new Promise((resolve, reject) => {
   axios
     .get(`${firebaseUrl}/resources.json`)
-    .then((res) => {
+    .then((response) => {
       const resources = [];
-      if (res.data !== null) {
-        Object.keys(res.data).forEach((key) => {
-          res.data[key].id = key;
-          resources.push(res.data[key]);
+      if (response.data !== null) {
+        Object.keys(response.data).forEach((key) => {
+          response.data[key].id = key;
+          resources.push(response.data[key]);
         });
       }
       resolve(resources);
