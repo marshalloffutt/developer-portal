@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import connection from '../helpers/data/connection';
@@ -10,16 +10,26 @@ import Profile from '../components/Profile/Profile';
 import ResourceForm from '../components/ResourceForm/ResourceForm';
 import Mavbar from '../components/Mavbar/Mavbar';
 
+import resourceRequests from '../helpers/data/resourceRequests';
+
 import './App.scss';
 import authRequests from '../helpers/data/authRequests';
 
 class App extends Component {
   state = {
     authed: false,
+    resources: [],
   }
 
   componentDidMount() {
     connection();
+
+    resourceRequests.getRequest()
+      .then((resources) => {
+        this.setState({ resources });
+      })
+      .catch(err => console.error('error with resource GET', err));
+
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({

@@ -5,28 +5,28 @@
       "url": "https://javascript30.com",
       "type": "tutorial",
       "isDone": false,
-      "uid": 12345
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource1": {
       "name": "React Tutorial",
       "url": "https://reactjs.org/tutorial/tutorial.html",
       "type": "tutorial",
       "isDone": false,
-      "uid": 12345
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource2": {
       "name": "CSS Grid",
       "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
       "type": "tutorial",
       "isDone": false,
-      "uid": 12345
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource3": {
       "name": "CSS Grid",
       "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
       "type": "tutorial",
       "isDone": false,
-      "uid": 12345
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource4": {
       "name": "Array Filter Function",
@@ -47,7 +47,7 @@
       "url": "https://blog.codepen.io/",
       "type": "blog",
       "isDone": false,
-      "uid": 12345
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     }
   }
 }
