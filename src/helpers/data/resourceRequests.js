@@ -19,6 +19,9 @@ const getRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const deleteResourceAxios = resourceId => axios.delete(`${firebaseUrl}/resources/${resourceId}.json`);
+
 export default {
   getRequest,
+  deleteResourceAxios,
 };
