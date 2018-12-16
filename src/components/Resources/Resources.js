@@ -20,7 +20,7 @@ class Resources extends React.Component {
       />
     ));
     return (
-      <div className="resources col">
+      <div className="resources col-7">
         <h2>Resources</h2>
         <ul>{resourcesItemComponents}</ul>
       </div>
