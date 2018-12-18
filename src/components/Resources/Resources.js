@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 
 import resourceShape from '../../helpers/propz/resourceShape';
 import ResourceItem from '../ResourceItem/ResourceItem';
+import FilterButtons from '../Buttons/Buttons';
 
 import './Resources.scss';
 
 class Resources extends React.Component {
   static propTypes = {
     resources: PropTypes.arrayOf(resourceShape),
+    filterAll: PropTypes.func,
+    filterTutorials: PropTypes.func,
+    filterBlogs: PropTypes.func,
+    filterPodcasts: PropTypes.func,
+    filterDocs: PropTypes.func,
     deleteSingleResource: PropTypes.func,
   };
 
@@ -22,8 +28,9 @@ class Resources extends React.Component {
       />
     ));
     return (
-      <div className="resources col-7">
+      <div className="resources col-8">
         <h2>Resources</h2>
+        <FilterButtons />
         <ul>{resourcesItemComponents}</ul>
       </div>
     );

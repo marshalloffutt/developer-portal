@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Input, FormGroup, Label } from 'reactstrap';
 
 import resourceShape from '../../helpers/propz/resourceShape';
 
@@ -22,13 +23,19 @@ class ResourceItem extends React.Component {
 
     return (
       <li className="resource-item text-center">
-        <span className="col-2">{resource.name}</span>
-        <span className="col-3">{resource.url}</span>
-        <span className="col-2">
-              <button className="btn btn-danger" onClick={this.deleteEvent}>
-                <i className="fas fa-trash-alt"></i>
-              </button>
-            </span>
+        <span className="col-3">{resource.name}</span>
+        <span className="col-4">{resource.url}</span>
+        <span className="col-1">
+          <button className="btn btn-danger" onClick={this.deleteEvent}>
+            <i className="fas fa-trash-alt"></i>
+          </button>
+        </span>
+        <FormGroup check>
+          <Label check>
+            <Input type="checkbox" onClick={this.isDone}/>
+            Done!
+          </Label>
+        </FormGroup>
       </li>
     );
   }
