@@ -23,14 +23,19 @@ class App extends Component {
 
   componentDidMount() {
     connection();
-    resourceRequests.getRequest()
-      .then((resources) => {
-        this.setState({ resources });
-      })
-      .catch(err => console.error('error with resource GET', err));
+
+    const writeResources = () => {
+      const uid = authRequests.getCurrentUid();
+      resourceRequests.getRequest(uid)
+        .then((resources) => {
+          this.setState({ resources });
+        })
+        .catch(err => console.error('error with resource GET', err));
+    };
 
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        writeResources();
         this.setState({
           authed: true,
         });
