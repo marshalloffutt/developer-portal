@@ -12,11 +12,11 @@
       "url": "https://reactjs.org/tutorial/tutorial.html",
       "type": "tutorial",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     },
     "resource2": {
-      "name": "CSS Grid",
-      "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+      "name": "Learn Fortran",
+      "url": "https://www.tutorialspoint.com/fortran/",
       "type": "tutorial",
       "isDone": false,
       "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
@@ -26,7 +26,7 @@
       "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
       "type": "tutorial",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     },
     "resource4": {
       "name": "Array Filter Function",
@@ -40,7 +40,7 @@
       "url": "https://codeburst.io/learn-understand-javascripts-reduce-function-b2b0406efbdc",
       "type": "tutorial",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     },
     "resource6": {
       "name": "The Code Pen Blog",
@@ -54,7 +54,7 @@
       "url": "https://www.thecrazyprogrammer.com/",
       "type": "blog",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     },
     "resource8": {
       "name": "David Walsh Blog",
@@ -64,11 +64,11 @@
       "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource9": {
-      "name": "Bootstrap: Introdcution",
+      "name": "Bootstrap: Introduction",
       "url": "https://getbootstrap.com/docs/4.1/getting-started/introduction/",
       "type": "documentation",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "123434"
     },
     "resource10": {
       "name": "ECMAScript 6 Features",
@@ -82,7 +82,7 @@
       "url": "https://syntax.fm/",
       "type": "podcast",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     },
     "resource12": {
       "name": "Laracasts Snippet",
@@ -96,7 +96,7 @@
       "url": "https://frontendhappyhour.com/",
       "type": "podcast",
       "isDone": false,
-      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
+      "uid": "12345"
     }
   }
 }
