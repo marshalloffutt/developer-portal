@@ -11,11 +11,11 @@ class FilterButtons extends React.Component {
     filterDocs: PropTypes.func,
   }
 
-  showAll = (e) => {
-    e.preventDefault();
-    const { filterAll } = this.props;
-    filterAll();
-  }
+  // showAll = (e) => {
+  //   e.preventDefault();
+  //   const { filterAll } = this.props;
+  //   filterAll();
+  // }
 
   showTutorials = (e) => {
     e.preventDefault();
@@ -23,23 +23,23 @@ class FilterButtons extends React.Component {
     filterTutorials();
   }
 
-  showBlogs = (e) => {
-    e.preventDefault();
-    const { filterBlogs } = this.props;
-    filterBlogs();
-  }
+  // showBlogs = (e) => {
+  //   e.preventDefault();
+  //   const { filterBlogs } = this.props;
+  //   filterBlogs();
+  // }
 
-  showPodcasts = (e) => {
-    e.preventDefault();
-    const { filterPodcasts } = this.props;
-    filterPodcasts();
-  }
+  // showPodcasts = (e) => {
+  //   e.preventDefault();
+  //   const { filterPodcasts } = this.props;
+  //   filterPodcasts();
+  // }
 
-  showDocs = (e) => {
-    e.preventDefault();
-    const { filterDocs } = this.props;
-    filterDocs();
-  }
+  // showDocs = (e) => {
+  //   e.preventDefault();
+  //   const { filterDocs } = this.props;
+  //   filterDocs();
+  // }
 
   render() {
     return (
