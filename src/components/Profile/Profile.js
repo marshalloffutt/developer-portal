@@ -1,11 +1,27 @@
 import React from 'react';
+import {
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+} from 'reactstrap';
 import './Profile.scss';
 
 class Profile extends React.Component {
   render() {
+    const { profile } = this.props;
+    console.log(profile);
     return (
       <div className="profile col">
-        <h2>Profile</h2>
+        <Card>
+        <CardImg top width="100%" src={profile.avatar_url} alt="avatar" />
+        <CardBody>
+          <CardTitle>{profile.login}</CardTitle>
+          <CardSubtitle>{profile.bio}</CardSubtitle>
+          <a href={profile.html_url} className="_blank">{profile.html_url}</a>
+        </CardBody>
+      </Card>
       </div>
     );
   }
