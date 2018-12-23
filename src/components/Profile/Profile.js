@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Card,
   CardImg,
@@ -9,17 +11,20 @@ import {
 import './Profile.scss';
 
 class Profile extends React.Component {
+  static propTypes = {
+    gitHubProfile: PropTypes.string,
+  }
+
   render() {
-    const { profile } = this.props;
-    console.log(profile);
+    const { gitHubProfile } = this.props;
     return (
       <div className="profile col">
         <Card>
-        <CardImg top width="100%" src={profile.avatar_url} alt="avatar" />
+        <CardImg top width="100%" src={gitHubProfile.avatar_url} alt="avatar" />
         <CardBody>
-          <CardTitle>{profile.login}</CardTitle>
-          <CardSubtitle>{profile.bio}</CardSubtitle>
-          <a href={profile.html_url} className="_blank">{profile.html_url}</a>
+          <CardTitle>{gitHubProfile.login}</CardTitle>
+          <CardSubtitle>{gitHubProfile.bio}</CardSubtitle>
+          <a href={gitHubProfile.html_url} className="_blank">{gitHubProfile.html_url}</a>
         </CardBody>
       </Card>
       </div>

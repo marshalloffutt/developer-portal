@@ -14,25 +14,13 @@ import resourceRequests from '../helpers/data/resourceRequests';
 
 import './App.scss';
 import authRequests from '../helpers/data/authRequests';
-import githubRequests from '../helpers/data/githubRequests';
+// import githubRequests from '../helpers/data/githubRequests';
 
 class App extends Component {
   state = {
     authed: false,
-    githubUser: '',
-    profile: [],
     resources: [],
   };
-
-  componentDidUpdate() {
-    if (this.state.githubUser && this.state.profile.length === 0) {
-      githubRequests.getUser(this.state.githubUser)
-        .then((profile) => {
-          this.setState({ profile });
-        })
-        .catch(err => console.error('error with getting github user', err));
-    }
-  }
 
   componentDidMount() {
     connection();
@@ -48,11 +36,9 @@ class App extends Component {
 
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        const loggedInUser = sessionStorage.getItem('githubUser');
         writeResources();
         this.setState({
           authed: true,
-          githubUser: loggedInUser,
         });
       } else {
         this.setState({
@@ -67,8 +53,7 @@ class App extends Component {
   }
 
   isAuthenticated = (username) => {
-    this.setState({ authed: true, githubUser: username });
-    sessionStorage.setItem('githhubUser', username);
+    this.setState({ authed: true });
   }
 
   deleteOne = (resourceId) => {
@@ -85,7 +70,7 @@ class App extends Component {
   render() {
     const logoutClicky = () => {
       authRequests.logoutUser();
-      this.setState({ authed: false, githubUser: '' });
+      this.setState({ authed: false });
     };
     if (!this.state.authed) {
       return (
@@ -101,9 +86,7 @@ class App extends Component {
       <div className="App">
         <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
         <div className="row">
-          <Profile
-          profile={this.state.profile}
-          />
+          <Profile />
           <ResourceForm />
         </div>
         <div className="row">
