@@ -28,10 +28,11 @@ class Resources extends React.Component {
       />
     ));
     return (
-      <div className="resources col-8">
-        <h2>Resources</h2>
-        <FilterButtons />
-        <ul>{resourcesItemComponents}</ul>
+      <div className="resources">
+        <div className="ml-5">
+          <FilterButtons />
+        </div>
+        <ul className="res">{resourcesItemComponents}</ul>
       </div>
     );
   }

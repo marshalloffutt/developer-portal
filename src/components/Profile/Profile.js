@@ -16,15 +16,15 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { gitHubProfile } = this.props;
+    // const { gitHubProfile } = this.props;
     return (
       <div className="profile col">
         <Card>
-        <CardImg top width="100%" src={gitHubProfile.avatar_url} alt="avatar" />
+        <CardImg top width="100%" className="pic" src="https://avatars2.githubusercontent.com/u/40044635?s=460&v=4" alt="avatar" />
         <CardBody>
-          <CardTitle>{gitHubProfile.login}</CardTitle>
-          <CardSubtitle>{gitHubProfile.bio}</CardSubtitle>
-          <a href={gitHubProfile.html_url} className="_blank">{gitHubProfile.html_url}</a>
+          <CardTitle>marshalloffutt</CardTitle>
+          <CardSubtitle>Hello!</CardSubtitle>
+          <a href="https://github.com/marshalloffutt" className="_blank">https://github.com/marshalloffutt</a>
         </CardBody>
       </Card>
       </div>

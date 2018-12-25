@@ -5,22 +5,21 @@ import 'firebase/auth';
 import connection from '../helpers/data/connection';
 
 import Auth from '../components/Auth/Auth';
-import Mavbar from '../components/Mavbar/Mavbar';
-import Profile from '../components/Profile/Profile';
 import Resources from '../components/Resources/Resources';
+import Profile from '../components/Profile/Profile';
 import ResourceForm from '../components/ResourceForm/ResourceForm';
+import Mavbar from '../components/Mavbar/Mavbar';
 
 import resourceRequests from '../helpers/data/resourceRequests';
 
 import './App.scss';
 import authRequests from '../helpers/data/authRequests';
-// import githubRequests from '../helpers/data/githubRequests';
 
 class App extends Component {
   state = {
     authed: false,
     resources: [],
-  };
+  }
 
   componentDidMount() {
     connection();
@@ -52,7 +51,7 @@ class App extends Component {
     this.removeListener();
   }
 
-  isAuthenticated = (username) => {
+  isAuthenticated = () => {
     this.setState({ authed: true });
   }
 
@@ -85,15 +84,19 @@ class App extends Component {
     return (
       <div className="App">
         <Mavbar isAuthed={this.state.authed} logoutClicky={logoutClicky}/>
-        <div className="row">
-          <Profile />
-          <ResourceForm />
-        </div>
-        <div className="row">
-          <Resources
-            resources={this.state.resources}
-            deleteSingleResource={this.deleteOne}
-          />
+        <div className="container-fluid">
+          <div className="row justify-content-around py-3">
+          <div className="col-3">
+            <Profile />
+          </div>
+            <div className="col">
+              <ResourceForm />
+              <Resources
+                resources={this.state.resources}
+                deleteSingleResource={this.deleteOne}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
