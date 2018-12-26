@@ -18,13 +18,12 @@ import './App.scss';
 class App extends Component {
   state = {
     authed: false,
-    resources: [],
     gitHubUserName: '',
-    gitHubProfile: '',
+    profile: {},
+    resources: [],
   }
 
   componentDidMount() {
-    const { gitHubUserName } = this.props;
     connection();
 
     const writeResources = () => {
@@ -36,43 +35,37 @@ class App extends Component {
         .catch(err => console.error('error with resource GET', err));
     };
 
-    const getGitHubProfile = () => {
-      githubRequests
-        .getUser(gitHubUserName)
-        .then((gitHubProfile) => {
-          this.setState({ gitHubProfile });
-          console.log(gitHubProfile);
-        })
-        .catch(err => console.error('error with github GET', err));
-    };
-
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        const loggedInUser = sessionStorage.getItem('gitHubUserName');
         writeResources();
-        getGitHubProfile();
         this.setState({
           authed: true,
+          gitHubUserName: loggedInUser,
         });
       } else {
         this.setState({
           authed: false,
         });
       }
+      githubRequests.getUser(this.state.gitHubUserName)
+        .then((results) => {
+          this.setState({ profile: results });
+        })
+        .catch(err => console.error(err));
     });
   }
 
   componentWillUnmount() {
     this.removeListener();
+    authRequests.logoutUser();
   }
 
   isAuthenticated = (userName) => {
-    const userId = authRequests.getCurrentUid();
     this.setState({
       authed: true,
-      uid: userId,
       gitHubUserName: userName,
     });
-    sessionStorage.setItem('uid', userId);
     sessionStorage.setItem('gitHubUserName', userName);
   }
 
@@ -88,8 +81,6 @@ class App extends Component {
   }
 
   render() {
-    const { gitHubUserName } = this.state;
-
     const logoutClicky = () => {
       authRequests.logoutUser();
       sessionStorage.clear();
@@ -116,7 +107,8 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row justify-content-around py-3">
           <div className="col-3">
-            <Profile gitHubUserName={gitHubUserName} />
+            <Profile
+              profile={this.state.profile} />
           </div>
             <div className="col">
               <ResourceForm />

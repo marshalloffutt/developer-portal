@@ -12,11 +12,12 @@ import './Profile.scss';
 
 class Profile extends React.Component {
   static propTypes = {
-    gitHubProfile: PropTypes.string,
+    profile: PropTypes.object,
   }
 
   render() {
-    // const { gitHubProfile } = this.props;
+    const { profile } = this.props;
+    console.log(profile);
     return (
       <div className="profile col">
         <Card>
