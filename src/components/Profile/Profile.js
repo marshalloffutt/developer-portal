@@ -12,19 +12,20 @@ import './Profile.scss';
 
 class Profile extends React.Component {
   static propTypes = {
-    gitHubProfile: PropTypes.string,
+    profile: PropTypes.object,
   }
 
   render() {
-    // const { gitHubProfile } = this.props;
+    const { profile } = this.props;
+    console.log(profile);
     return (
       <div className="profile col">
         <Card>
-        <CardImg top width="100%" className="pic" src="https://avatars2.githubusercontent.com/u/40044635?s=460&v=4" alt="avatar" />
+        <CardImg top width="100%" className="pic" src={profile.avatar_url} alt="avatar" />
         <CardBody>
-          <CardTitle>marshalloffutt</CardTitle>
-          <CardSubtitle>Hello!</CardSubtitle>
-          <a href="https://github.com/marshalloffutt" className="_blank">https://github.com/marshalloffutt</a>
+          <CardTitle>{profile.login}</CardTitle>
+          <CardSubtitle>{profile.bio}</CardSubtitle>
+          <a href={profile.html_url} className="_blank">{profile.html_url}</a>
         </CardBody>
       </Card>
       </div>
