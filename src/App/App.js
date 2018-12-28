@@ -21,6 +21,7 @@ class App extends Component {
     gitHubUserName: '',
     profile: {},
     resources: [],
+    commits: '',
   }
 
   componentDidMount() {
@@ -51,6 +52,11 @@ class App extends Component {
       githubRequests.getUser(this.state.gitHubUserName)
         .then((results) => {
           this.setState({ profile: results });
+        })
+        .catch(err => console.error(err));
+      githubRequests.getCommits(this.state.gitHubUserName)
+        .then((results) => {
+          this.setState({ commits: results });
         })
         .catch(err => console.error(err));
     });
@@ -108,7 +114,9 @@ class App extends Component {
           <div className="row justify-content-around py-3">
           <div className="col-3">
             <Profile
-              profile={this.state.profile} />
+              profile={this.state.profile}
+              commits={this.state.commits}
+            />
           </div>
             <div className="col">
               <ResourceForm />
