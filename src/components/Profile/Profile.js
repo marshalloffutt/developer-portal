@@ -13,10 +13,11 @@ import './Profile.scss';
 class Profile extends React.Component {
   static propTypes = {
     profile: PropTypes.object,
+    commits: PropTypes.string,
   }
 
   render() {
-    const { profile } = this.props;
+    const { profile, commits } = this.props;
     console.log(profile);
     return (
       <div className="profile col">
@@ -26,6 +27,9 @@ class Profile extends React.Component {
           <CardTitle>{profile.login}</CardTitle>
           <CardSubtitle>{profile.bio}</CardSubtitle>
           <a href={profile.html_url} className="_blank">{profile.html_url}</a>
+          <h3>{commits}</h3>
+          <h5>commits</h5>
+          <p>in the last 5 days</p>
         </CardBody>
       </Card>
       </div>
