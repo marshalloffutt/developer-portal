@@ -28,6 +28,14 @@ class App extends Component {
   componentDidMount() {
     connection();
 
+    const writeResources = () => {
+      resourceRequests.getRequest(sessionStorage.getItem('uid'))
+        .then((resources) => {
+          this.setState({ resources });
+        })
+        .catch(err => console.error('error with resource GET', err));
+    };
+
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const loggedInUser = sessionStorage.getItem('gitHubUserName');
@@ -53,6 +61,7 @@ class App extends Component {
         })
         .catch(err => console.error(err));
     });
+    writeResources();
   }
 
   writeResources = () => {
@@ -83,11 +92,12 @@ class App extends Component {
   deleteOne = (resourceId) => {
     resourceRequests.deleteResourceAxios(resourceId)
       .then(() => {
-        resourceRequests.getRequest()
-          .then((resources) => {
-            this.setState({ resources });
-            this.writeResources();
-          });
+        // Grabbing existing state using function
+        this.setState((state) => {
+        // Filtering out the one resource by resourceId
+          const filteredResources = state.resources.filter(resource => resource.id !== resourceId);
+          return { resources: filteredResources };
+        });
       })
       .catch(err => console.error('error with delete single', err));
   }
@@ -95,11 +105,11 @@ class App extends Component {
   formSubmitEvent = (newResource) => {
     resourceRequests.postRequest(newResource)
       .then(() => {
-        resourceRequests.getRequest()
-          .then((resources) => {
-            this.setState({ resources });
-            this.writeResources();
-          });
+        this.setState(state => ({ resources: [...state.resources, newResource] }));
+        // this.setState((state) => {
+        //   const updatedResources = [...state.resources, newResource];
+        //   return { resources: updatedResources };
+        // });
       })
       .catch(err => console.error('error with resource post', err));
   }
@@ -141,6 +151,7 @@ class App extends Component {
               <Resources
                 resources={this.state.resources}
                 deleteSingleResource={this.deleteOne}
+                filterTutorials={this.filterTutorials}
               />
             </div>
           </div>

@@ -10,27 +10,35 @@ import './Resources.scss';
 class Resources extends React.Component {
   static propTypes = {
     resources: PropTypes.arrayOf(resourceShape),
-    filterAll: PropTypes.func,
-    filterTutorials: PropTypes.func,
-    filterBlogs: PropTypes.func,
-    filterPodcasts: PropTypes.func,
-    filterDocs: PropTypes.func,
     deleteSingleResource: PropTypes.func,
   };
 
+  state = {
+    filterType: 'tutorial',
+  }
+
+  changeType = (filterType) => {
+    this.setState({ filterType });
+  }
+
   render() {
     const { resources, deleteSingleResource } = this.props;
-    const resourcesItemComponents = resources.map(resource => (
+    const { filterType } = this.state;
+    const resourcesItemComponents = resources
+      .filter(resource => !filterType || resource.type === filterType)
+      .map(resource => (
       <ResourceItem
         resource={resource}
         key={resource.id}
         deleteSingleResource={deleteSingleResource}
       />
-    ));
+      ));
     return (
       <div className="resources">
         <div className="ml-5">
-          <FilterButtons />
+          <FilterButtons
+            changeType={this.changeType}
+          />
         </div>
         <ul className="res">{resourcesItemComponents}</ul>
       </div>

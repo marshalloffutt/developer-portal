@@ -22,7 +22,6 @@ class ResourceForm extends React.Component {
   }
 
   formFieldStringState = (name, e) => {
-    e.preventDefault();
     const tempResource = { ...this.state.newResource };
     tempResource[name] = e.target.value;
     this.setState({ newResource: tempResource });
@@ -127,8 +126,8 @@ class ResourceForm extends React.Component {
                 type="radio"
                 name="resourceRadios"
                 id="docs"
-                value="doc"
-                checked={radioChecked === 'doc'}
+                value="documentation"
+                checked={radioChecked === 'documentation'}
                 onChange={this.typeChange}
               />
               <label className="form-check-label" htmlFor="docs">
