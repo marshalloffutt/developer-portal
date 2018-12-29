@@ -92,11 +92,12 @@ class App extends Component {
   deleteOne = (resourceId) => {
     resourceRequests.deleteResourceAxios(resourceId)
       .then(() => {
-        resourceRequests.getRequest()
-          .then((resources) => {
-            this.setState({ resources });
-            this.writeResources();
-          });
+        // Grabbing existing state using function
+        this.setState((state) => {
+        // Filtering out the one resource by resourceId
+          const filteredResources = state.resources.filter(resource => resource.id !== resourceId);
+          return { resources: filteredResources };
+        });
       })
       .catch(err => console.error('error with delete single', err));
   }
@@ -104,11 +105,11 @@ class App extends Component {
   formSubmitEvent = (newResource) => {
     resourceRequests.postRequest(newResource)
       .then(() => {
-        resourceRequests.getRequest()
-          .then((resources) => {
-            this.setState({ resources });
-            this.writeResources();
-          });
+        this.setState(state => ({ resources: [...state.resources, newResource] }));
+        // this.setState((state) => {
+        //   const updatedResources = [...state.resources, newResource];
+        //   return { resources: updatedResources };
+        // });
       })
       .catch(err => console.error('error with resource post', err));
   }

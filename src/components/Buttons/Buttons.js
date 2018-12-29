@@ -15,6 +15,8 @@ class FilterButtons extends React.Component {
 
   showDocsEvent = e => this.props.changeType('documentation');
 
+  showAllEvent = e => this.props.changeType(null);
+
   render() {
     return (
       <ButtonGroup>

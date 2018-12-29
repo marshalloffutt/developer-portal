@@ -25,7 +25,7 @@ class Resources extends React.Component {
     const { resources, deleteSingleResource } = this.props;
     const { filterType } = this.state;
     const resourcesItemComponents = resources
-      .filter(resource => resource.type === filterType)
+      .filter(resource => !filterType || resource.type === filterType)
       .map(resource => (
       <ResourceItem
         resource={resource}
