@@ -113,19 +113,6 @@ class App extends Component {
       .catch(err => console.error('error with resource post', err));
   }
 
-  filterTutorials = (e) => {
-    const tutorialsArray = [];
-    resourceRequests.getRequest()
-      .then((resources) => {
-        resources.forEach((resource) => {
-          if (resource.type === 'tutorial') {
-            tutorialsArray.push(resource);
-            this.setState({ resources: tutorialsArray });
-          }
-        });
-      });
-  }
-
   render() {
     const logoutClicky = () => {
       authRequests.logoutUser();
@@ -163,6 +150,7 @@ class App extends Component {
               <Resources
                 resources={this.state.resources}
                 deleteSingleResource={this.deleteOne}
+                filterTutorials={this.filterTutorials}
               />
             </div>
           </div>

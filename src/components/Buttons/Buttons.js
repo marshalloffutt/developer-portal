@@ -4,27 +4,25 @@ import { Button, ButtonGroup } from 'reactstrap';
 
 class FilterButtons extends React.Component {
   static propTypes = {
-    filterAll: PropTypes.func,
-    filterTutorials: PropTypes.func,
-    filterBlogs: PropTypes.func,
-    filterPodcasts: PropTypes.func,
-    filterDocs: PropTypes.func,
+    changeType: PropTypes.func,
   }
 
-  showTutorials = (e) => {
-    e.preventDefault();
-    const { filterTutorials } = this.props;
-    filterTutorials();
-  }
+  showTutorialsEvent = e => this.props.changeType('tutorial');
+
+  showBlogsEvent = e => this.props.changeType('blog');
+
+  showPodcastsEvent = e => this.props.changeType('podcast');
+
+  showDocsEvent = e => this.props.changeType('documentation');
 
   render() {
     return (
       <ButtonGroup>
-        <Button className="btn btn-primary" onClick={this.showAll}>All</Button>
-        <Button className="btn btn-primary" onClick={this.showTutorials}>Tutorials</Button>
-        <Button className="btn btn-primary" onClick={this.showBlogs}>Blogs</Button>
-        <Button className="btn btn-primary" onClick={this.showPodcasts}>Podcasts</Button>
-        <Button className="btn btn-primary" onClick={this.showDocs}>Docs</Button>
+        <Button className="btn btn-primary" onClick={this.showAllEvent}>All</Button>
+        <Button className="btn btn-primary" onClick={this.showTutorialsEvent}>Tutorials</Button>
+        <Button className="btn btn-primary" onClick={this.showBlogsEvent}>Blogs</Button>
+        <Button className="btn btn-primary" onClick={this.showPodcastsEvent}>Podcasts</Button>
+        <Button className="btn btn-primary" onClick={this.showDocsEvent}>Docs</Button>
       </ButtonGroup>
     );
   }
