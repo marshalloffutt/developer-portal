@@ -23,9 +23,9 @@ class ResourceItem extends React.Component {
 
     return (
       <li className="resource-item text-center">
-        <span className="col-3">{resource.name}</span>
-        <span className="col-4">{resource.url}</span>
-        <span className="col-1">
+        <span className="col">{resource.name}</span>
+        <a href={resource.url} className="col _blank link-text">{resource.url}</a>
+        <span className="col">
           <button className="btn btn-danger" onClick={this.deleteEvent}>
             <i className="fas fa-trash-alt"></i>
           </button>

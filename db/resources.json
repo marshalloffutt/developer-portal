@@ -12,7 +12,7 @@
       "url": "https://reactjs.org/tutorial/tutorial.html",
       "type": "tutorial",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource2": {
       "name": "Learn Fortran",
@@ -26,7 +26,7 @@
       "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
       "type": "tutorial",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource4": {
       "name": "Array Filter Function",
@@ -40,7 +40,7 @@
       "url": "https://codeburst.io/learn-understand-javascripts-reduce-function-b2b0406efbdc",
       "type": "tutorial",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource6": {
       "name": "The Code Pen Blog",
@@ -54,7 +54,7 @@
       "url": "https://www.thecrazyprogrammer.com/",
       "type": "blog",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource8": {
       "name": "David Walsh Blog",
@@ -68,7 +68,7 @@
       "url": "https://getbootstrap.com/docs/4.1/getting-started/introduction/",
       "type": "documentation",
       "isDone": false,
-      "uid": "123434"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource10": {
       "name": "ECMAScript 6 Features",
@@ -82,7 +82,7 @@
       "url": "https://syntax.fm/",
       "type": "podcast",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     },
     "resource12": {
       "name": "Laracasts Snippet",
@@ -96,7 +96,7 @@
       "url": "https://frontendhappyhour.com/",
       "type": "podcast",
       "isDone": false,
-      "uid": "12345"
+      "uid": "wsu1QFfJcqNW52UGZyDpzrMLev23"
     }
   }
 }

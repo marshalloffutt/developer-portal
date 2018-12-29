@@ -13,5 +13,13 @@
   
     &:hover {
         border-color: $darkGray;
+        background: $lightGray;
     }
+}
+
+// .name-text {
+//     font-size: .8em;
+// }
+.link-text {
+    font-size: .8em;
 }
