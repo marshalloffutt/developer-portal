@@ -18,6 +18,7 @@ import './App.scss';
 class App extends Component {
   state = {
     authed: false,
+    uid: '',
     gitHubUserName: '',
     profile: {},
     resources: [],
@@ -27,22 +28,14 @@ class App extends Component {
   componentDidMount() {
     connection();
 
-    const writeResources = () => {
-      const uid = authRequests.getCurrentUid();
-      resourceRequests.getRequest(uid)
-        .then((resources) => {
-          this.setState({ resources });
-        })
-        .catch(err => console.error('error with resource GET', err));
-    };
-
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const loggedInUser = sessionStorage.getItem('gitHubUserName');
-        writeResources();
+        const userId = sessionStorage.getItem('uid');
         this.setState({
           authed: true,
           gitHubUserName: loggedInUser,
+          uid: userId,
         });
       } else {
         this.setState({
@@ -62,17 +55,29 @@ class App extends Component {
     });
   }
 
+  writeResources = () => {
+    resourceRequests.getRequest(sessionStorage.getItem('uid'))
+      .then((resources) => {
+        this.setState({ resources });
+      })
+      .catch(err => console.error('error with resource GET', err));
+  };
+
   componentWillUnmount() {
     this.removeListener();
     authRequests.logoutUser();
   }
 
   isAuthenticated = (userName) => {
+    const userId = authRequests.getCurrentUid();
     this.setState({
       authed: true,
       gitHubUserName: userName,
+      uid: userId,
     });
     sessionStorage.setItem('gitHubUserName', userName);
+    sessionStorage.setItem('uid', userId);
+    this.writeResources();
   }
 
   deleteOne = (resourceId) => {
@@ -81,6 +86,7 @@ class App extends Component {
         resourceRequests.getRequest()
           .then((resources) => {
             this.setState({ resources });
+            this.writeResources();
           });
       })
       .catch(err => console.error('error with delete single', err));
@@ -92,6 +98,7 @@ class App extends Component {
         resourceRequests.getRequest()
           .then((resources) => {
             this.setState({ resources });
+            this.writeResources();
           });
       })
       .catch(err => console.error('error with resource post', err));
