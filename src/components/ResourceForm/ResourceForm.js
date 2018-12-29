@@ -22,7 +22,6 @@ class ResourceForm extends React.Component {
   }
 
   formFieldStringState = (name, e) => {
-    e.preventDefault();
     const tempResource = { ...this.state.newResource };
     tempResource[name] = e.target.value;
     this.setState({ newResource: tempResource });

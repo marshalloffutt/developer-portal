@@ -11,35 +11,11 @@ class FilterButtons extends React.Component {
     filterDocs: PropTypes.func,
   }
 
-  // showAll = (e) => {
-  //   e.preventDefault();
-  //   const { filterAll } = this.props;
-  //   filterAll();
-  // }
-
   showTutorials = (e) => {
     e.preventDefault();
     const { filterTutorials } = this.props;
     filterTutorials();
   }
-
-  // showBlogs = (e) => {
-  //   e.preventDefault();
-  //   const { filterBlogs } = this.props;
-  //   filterBlogs();
-  // }
-
-  // showPodcasts = (e) => {
-  //   e.preventDefault();
-  //   const { filterPodcasts } = this.props;
-  //   filterPodcasts();
-  // }
-
-  // showDocs = (e) => {
-  //   e.preventDefault();
-  //   const { filterDocs } = this.props;
-  //   filterDocs();
-  // }
 
   render() {
     return (

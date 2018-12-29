@@ -28,6 +28,14 @@ class App extends Component {
   componentDidMount() {
     connection();
 
+    const writeResources = () => {
+      resourceRequests.getRequest(sessionStorage.getItem('uid'))
+        .then((resources) => {
+          this.setState({ resources });
+        })
+        .catch(err => console.error('error with resource GET', err));
+    };
+
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const loggedInUser = sessionStorage.getItem('gitHubUserName');
@@ -53,6 +61,7 @@ class App extends Component {
         })
         .catch(err => console.error(err));
     });
+    writeResources();
   }
 
   writeResources = () => {
@@ -102,6 +111,19 @@ class App extends Component {
           });
       })
       .catch(err => console.error('error with resource post', err));
+  }
+
+  filterTutorials = (e) => {
+    const tutorialsArray = [];
+    resourceRequests.getRequest()
+      .then((resources) => {
+        resources.forEach((resource) => {
+          if (resource.type === 'tutorial') {
+            tutorialsArray.push(resource);
+            this.setState({ resources: tutorialsArray });
+          }
+        });
+      });
   }
 
   render() {

@@ -10,11 +10,7 @@ import './Resources.scss';
 class Resources extends React.Component {
   static propTypes = {
     resources: PropTypes.arrayOf(resourceShape),
-    filterAll: PropTypes.func,
     filterTutorials: PropTypes.func,
-    filterBlogs: PropTypes.func,
-    filterPodcasts: PropTypes.func,
-    filterDocs: PropTypes.func,
     deleteSingleResource: PropTypes.func,
   };
 
