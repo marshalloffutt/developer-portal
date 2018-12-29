@@ -13,12 +13,11 @@ import './Profile.scss';
 class Profile extends React.Component {
   static propTypes = {
     profile: PropTypes.object,
-    commits: PropTypes.string,
+    commits: PropTypes.number,
   }
 
   render() {
     const { profile, commits } = this.props;
-    console.log(profile);
     return (
       <div className="profile col">
         <Card>
@@ -29,7 +28,7 @@ class Profile extends React.Component {
           <a href={profile.html_url} className="_blank">{profile.html_url}</a>
           <h3>{commits}</h3>
           <h5>commits</h5>
-          <p>in the last 5 days</p>
+          <p><span className="maybe">in the last 5 days</span> recently</p>
         </CardBody>
       </Card>
       </div>

@@ -21,7 +21,7 @@ class App extends Component {
     gitHubUserName: '',
     profile: {},
     resources: [],
-    commits: '',
+    commits: 0,
   }
 
   componentDidMount() {
@@ -86,6 +86,17 @@ class App extends Component {
       .catch(err => console.error('error with delete single', err));
   }
 
+  formSubmitEvent = (newResource) => {
+    resourceRequests.postRequest(newResource)
+      .then(() => {
+        resourceRequests.getRequest()
+          .then((resources) => {
+            this.setState({ resources });
+          });
+      })
+      .catch(err => console.error('error with resource post', err));
+  }
+
   render() {
     const logoutClicky = () => {
       authRequests.logoutUser();
@@ -119,7 +130,7 @@ class App extends Component {
             />
           </div>
             <div className="col">
-              <ResourceForm />
+              <ResourceForm onSubmit={this.formSubmitEvent}/>
               <Resources
                 resources={this.state.resources}
                 deleteSingleResource={this.deleteOne}
