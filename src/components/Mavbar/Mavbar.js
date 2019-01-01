@@ -26,12 +26,12 @@ static propTypes = {
     const { isAuthed, logoutClicky } = this.props;
     return (
       <div className="mavbar">
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">DP</NavbarBrand>
+        <Navbar color="dark" dark expand="md">
+          <NavbarBrand href="/">Developer Portal</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+              <NavItem className="logout">
                 { isAuthed ? <NavLink onClick={logoutClicky}>Logout</NavLink> : '' }
               </NavItem>
             </Nav>

@@ -90,12 +90,9 @@ class App extends Component {
   }
 
   deleteOne = (resourceId) => {
-    // const uid = authRequests.getCurrentUid();
     resourceRequests.deleteResourceAxios(resourceId)
       .then(() => {
-        // Grabbing existing state using function
         this.setState((state) => {
-        // Filtering out the one resource by resourceId
           const filteredResources = state.resources.filter(resource => resource.id !== resourceId);
           return { resources: filteredResources };
         });
@@ -106,7 +103,6 @@ class App extends Component {
   updateOne = (resourceId, isDone) => {
     resourceRequests.updateResourceAxios(resourceId, isDone)
       .then(() => {
-        // Grab existing state using function
         this.setState((state) => {
           const updatedResources = state.resources.sort((x, y) => x.isDone - y.isDone);
           return { resources: updatedResources };
