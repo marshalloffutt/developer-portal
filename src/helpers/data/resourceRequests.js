@@ -21,6 +21,8 @@ const getRequest = uid => new Promise((resolve, reject) => {
 
 const deleteResourceAxios = resourceId => axios.delete(`${firebaseUrl}/resources/${resourceId}.json`);
 
+const updateResourceAxios = (resourceId, isDone) => axios.patch(`${firebaseUrl}/resources/${resourceId}.json`, { isDone });
+
 const postRequest = resource => new Promise((resolve, reject) => {
   axios.post(`${firebaseUrl}/resources.json`, resource)
     .then((result) => {
@@ -34,5 +36,6 @@ const postRequest = resource => new Promise((resolve, reject) => {
 export default {
   getRequest,
   deleteResourceAxios,
+  updateResourceAxios,
   postRequest,
 };

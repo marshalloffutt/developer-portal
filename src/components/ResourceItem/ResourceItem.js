@@ -10,12 +10,20 @@ class ResourceItem extends React.Component {
   static propTypes = {
     resource: resourceShape,
     deleteSingleResource: PropTypes.func,
+    updateSingleResource: PropTypes.func,
   }
 
   deleteEvent = (e) => {
     e.preventDefault();
     const { deleteSingleResource, resource } = this.props;
     deleteSingleResource(resource.id);
+  }
+
+  finishEvent = (e) => {
+    e.preventDefault();
+    const { updateSingleResource, resource } = this.props;
+    const isDone = e.target.checked;
+    updateSingleResource(resource.id, isDone);
   }
 
   render() {
@@ -32,7 +40,11 @@ class ResourceItem extends React.Component {
         </span>
         <FormGroup check>
           <Label check>
-            <Input type="checkbox" onClick={this.isDone}/>
+            <Input
+              type="checkbox"
+              className="form-check-input"
+              checked={resource.isDone}
+              onChange={this.finishEvent}/>
             Done!
           </Label>
         </FormGroup>

@@ -11,6 +11,7 @@ class Resources extends React.Component {
   static propTypes = {
     resources: PropTypes.arrayOf(resourceShape),
     deleteSingleResource: PropTypes.func,
+    updateSingleResource: PropTypes.func,
   };
 
   state = {
@@ -22,15 +23,17 @@ class Resources extends React.Component {
   }
 
   render() {
-    const { resources, deleteSingleResource } = this.props;
+    const { resources, deleteSingleResource, updateSingleResource } = this.props;
     const { filterType } = this.state;
     const resourcesItemComponents = resources
       .filter(resource => !filterType || resource.type === filterType)
+      .sort((x, y) => x.isDone - y.isDone)
       .map(resource => (
       <ResourceItem
         resource={resource}
         key={resource.id}
         deleteSingleResource={deleteSingleResource}
+        updateSingleResource={updateSingleResource}
       />
       ));
     return (

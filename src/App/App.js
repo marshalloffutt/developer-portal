@@ -90,6 +90,7 @@ class App extends Component {
   }
 
   deleteOne = (resourceId) => {
+    // const uid = authRequests.getCurrentUid();
     resourceRequests.deleteResourceAxios(resourceId)
       .then(() => {
         // Grabbing existing state using function
@@ -100,6 +101,18 @@ class App extends Component {
         });
       })
       .catch(err => console.error('error with delete single', err));
+  }
+
+  updateOne = (resourceId, isDone) => {
+    resourceRequests.updateResourceAxios(resourceId, isDone)
+      .then(() => {
+        // Grab existing state using function
+        this.setState((state) => {
+          const updatedResources = state.resources.sort((x, y) => x.isDone - y.isDone);
+          return { resources: updatedResources };
+        });
+      })
+      .catch(err => console.error('error with updating single', err));
   }
 
   formSubmitEvent = (newResource) => {
@@ -151,6 +164,7 @@ class App extends Component {
               <Resources
                 resources={this.state.resources}
                 deleteSingleResource={this.deleteOne}
+                updateSingleResource={this.updateOne}
                 filterTutorials={this.filterTutorials}
               />
             </div>
