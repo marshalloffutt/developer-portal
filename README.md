@@ -6,7 +6,7 @@ This app is a tool for junior developers to keep track of resources they are int
 
 ## Screenshot
 
-![homeview](.images/snapshot1.png)
+![homeview](images/snapshot1.png)
 
 ## Technologies Used
 * React
