@@ -27,7 +27,7 @@ static propTypes = {
     return (
       <div className="mavbar">
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">Developer Portal</NavbarBrand>
+          <NavbarBrand href="/">Dev++</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
