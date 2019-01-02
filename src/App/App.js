@@ -100,25 +100,22 @@ class App extends Component {
       .catch(err => console.error('error with delete single', err));
   }
 
-  toggleDone = (resourceId) => {
-    this.setState(state => {
+  toggleIsDone = (resourceId) => {
+    this.setState((state) => {
       const updatedResources = state.resources
-        .map(resource => {
+        .map((resource) => {
           if (resource.id === resourceId) {
             return { ...resource, isDone: !resource.isDone };
-          } else {
-            return resource;
-          }
+          } return resource;
         });
       return { resources: updatedResources };
     });
   };
 
-
   updateOne = (resourceId, isDone) => {
     resourceRequests.updateResourceAxios(resourceId, isDone)
       .then(() => {
-        this.toggleDone(resourceId);
+        this.toggleIsDone(resourceId);
       })
       .catch(err => console.error('error with updating single', err));
   }
@@ -126,11 +123,10 @@ class App extends Component {
   formSubmitEvent = (newResource) => {
     resourceRequests.postRequest(newResource)
       .then(() => {
-        this.setState(state => ({ resources: [...state.resources, newResource] }));
-        // this.setState((state) => {
-        //   const updatedResources = [...state.resources, newResource];
-        //   return { resources: updatedResources };
-        // });
+        this.setState((state) => {
+          const updatedResources = [...state.resources, newResource];
+          return { resources: updatedResources };
+        });
       })
       .catch(err => console.error('error with resource post', err));
   }
