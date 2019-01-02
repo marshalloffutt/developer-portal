@@ -92,14 +92,35 @@ class App extends Component {
   deleteOne = (resourceId) => {
     resourceRequests.deleteResourceAxios(resourceId)
       .then(() => {
-        // Grabbing existing state using function
         this.setState((state) => {
-        // Filtering out the one resource by resourceId
           const filteredResources = state.resources.filter(resource => resource.id !== resourceId);
           return { resources: filteredResources };
         });
       })
       .catch(err => console.error('error with delete single', err));
+  }
+
+  toggleDone = (resourceId) => {
+    this.setState(state => {
+      const updatedResources = state.resources
+        .map(resource => {
+          if (resource.id === resourceId) {
+            return { ...resource, isDone: !resource.isDone };
+          } else {
+            return resource;
+          }
+        });
+      return { resources: updatedResources };
+    });
+  };
+
+
+  updateOne = (resourceId, isDone) => {
+    resourceRequests.updateResourceAxios(resourceId, isDone)
+      .then(() => {
+        this.toggleDone(resourceId);
+      })
+      .catch(err => console.error('error with updating single', err));
   }
 
   formSubmitEvent = (newResource) => {
@@ -151,6 +172,7 @@ class App extends Component {
               <Resources
                 resources={this.state.resources}
                 deleteSingleResource={this.deleteOne}
+                updateSingleResource={this.updateOne}
                 filterTutorials={this.filterTutorials}
               />
             </div>
