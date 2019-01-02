@@ -100,13 +100,25 @@ class App extends Component {
       .catch(err => console.error('error with delete single', err));
   }
 
+  toggleDone = (resourceId) => {
+    this.setState(state => {
+      const updatedResources = state.resources
+        .map(resource => {
+          if (resource.id === resourceId) {
+            return { ...resource, isDone: !resource.isDone };
+          } else {
+            return resource;
+          }
+        });
+      return { resources: updatedResources };
+    });
+  };
+
+
   updateOne = (resourceId, isDone) => {
     resourceRequests.updateResourceAxios(resourceId, isDone)
       .then(() => {
-        this.setState((state) => {
-          const updatedResources = state.resources.sort((x, y) => x.isDone - y.isDone);
-          return { resources: updatedResources };
-        });
+        this.toggleDone(resourceId);
       })
       .catch(err => console.error('error with updating single', err));
   }
