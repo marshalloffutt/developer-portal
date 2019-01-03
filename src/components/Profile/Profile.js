@@ -5,7 +5,6 @@ import {
   Card,
   CardImg,
   CardBody,
-  CardSubtitle,
 } from 'reactstrap';
 import './Profile.scss';
 
