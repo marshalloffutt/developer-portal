@@ -1,3 +1,41 @@
+@import '../../styles/variables';
+
 .maybe {
   text-decoration: line-through;
+}
+
+.avatar {
+  width: 230px;
+  // margin-left: 40px;
+  border-color: transparent !important;
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.login {
+  color: $darkGray;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.bio {
+  font-size: 14px;
+}
+
+.commits-text {
+  font-size: 14px;
+}
+
+.profile-link-text {
+  font-size: 12px;
+}
+
+#me {
+  border-radius: 6px !important;
 }

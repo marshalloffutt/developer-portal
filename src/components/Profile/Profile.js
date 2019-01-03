@@ -5,7 +5,6 @@ import {
   Card,
   CardImg,
   CardBody,
-  CardTitle,
   CardSubtitle,
 } from 'reactstrap';
 import './Profile.scss';
@@ -20,15 +19,17 @@ class Profile extends React.Component {
     const { profile, commits } = this.props;
     return (
       <div className="profile col">
-        <Card>
-        <CardImg top width="100%" className="pic" src={profile.avatar_url} alt="avatar" />
+        <Card className="avatar">
+        <CardImg top width="100%" className="pic" id="me" src={profile.avatar_url} alt="avatar" />
         <CardBody>
-          <CardTitle>{profile.login}</CardTitle>
-          <CardSubtitle>{profile.bio}</CardSubtitle>
-          <a href={profile.html_url} className="_blank">{profile.html_url}</a>
-          <h3>{commits}</h3>
-          <h5>commits</h5>
-          <p><span className="maybe">in the last 5 days</span> recently</p>
+          <h3 className="name">{profile.name}</h3>
+          <p className="login">{profile.login}</p>
+          <p className="bio">{profile.bio}</p>
+          <a href={profile.html_url} className="_blank profile-link-text">{profile.html_url}</a>
+          <div className="text-center mt-2">
+            <h3>{commits}</h3>
+            <p className="commits-text">commits in the last 5 days</p>
+          </div>
         </CardBody>
       </Card>
       </div>
