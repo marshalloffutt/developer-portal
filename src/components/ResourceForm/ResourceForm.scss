@@ -1,3 +1,9 @@
-.fa-plus-circle:hover {
-  color: cyan;
+@import '../../styles/variables';
+
+.circle {
+  color: $blue;
+
+  &:hover {
+    color: $pink;
+  }
 }

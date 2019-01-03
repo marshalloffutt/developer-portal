@@ -137,8 +137,8 @@ class ResourceForm extends React.Component {
           </div>
 
           <div className="form-group m-5 col-2">
-            <button type="submit" className="submit-button btn btn-primary">
-            <i className="fas fa-plus-circle fa-3x submit-button"/>
+            <button type="submit" className="submit-button btn">
+              <i className="fas fa-plus-circle fa-3x submit-button circle"/>
             </button>
           </div>
         </form>
