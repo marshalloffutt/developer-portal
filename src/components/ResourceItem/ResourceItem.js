@@ -31,14 +31,14 @@ class ResourceItem extends React.Component {
 
     return (
       <li className="resource-item text-center">
-        <span className="col">{resource.name}</span>
-        <a href={resource.url} className="col _blank link-text">{resource.url}</a>
-        <span className="col">
+        <span className="col-3">{resource.name}</span>
+        <a href={resource.url} className="col-4 _blank link-text">{resource.url}</a>
+        <span className="col-2">
           <button className="btn btn-danger" onClick={this.deleteEvent}>
             <i className="fas fa-trash-alt"></i>
           </button>
         </span>
-        <FormGroup check>
+        <FormGroup className="col-1 d-flex align-items-center">
           <Label check>
             <Input
               type="checkbox"
