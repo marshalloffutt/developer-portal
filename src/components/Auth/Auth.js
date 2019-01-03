@@ -22,7 +22,7 @@ class Auth extends React.Component {
   render() {
     return (
       <div className="Auth">
-        <button className="btn btn-success" onClick={this.authenticateUser}>Login</button>
+        <button className="btn-lg btn-outline-secondary" id="ghbtn" onClick={this.authenticateUser}>Login with GitHub <i className="fab fa-github"></i></button>
       </div>
     );
   }
