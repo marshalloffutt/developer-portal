@@ -2,7 +2,9 @@
 
 ## Description
 
-This app is a tool for junior developers to keep track of resources they are interested in. It is essentially a to-do list app, but also uses the GitHub API to display profile, and commits count. User can sort resources by type, and can also add new resources, or delete unwanted resources.
+This app is a tool for junior developers to keep track of resources they are interested in. It is essentially a to-do list app, but also uses the GitHub API to display profile, and commits count. Users can sort resources by type, and can also add new resources, or delete unwanted resources.
+
+Link to current deployed site: [link](https://developer-portal-f10f9.firebaseapp.com/)
 
 ## Screenshot
 
